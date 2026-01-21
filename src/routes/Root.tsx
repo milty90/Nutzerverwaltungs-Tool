@@ -1,8 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
 import Button from "@mui/material/Button";
-
 import "../routes/root.css";
+import { useState } from "react";
 function Root() {
+  const [headerTitle, setHeaderTitle] = useState("Nutzerverwaltung");
   return (
     <div className="root-body">
       <nav className="root-nav">
@@ -12,6 +13,7 @@ function Root() {
 
         <Link to="/overview" className="sidebar-item">
           <Button
+            onClick={() => setHeaderTitle("Übersicht")}
             className="sidebar-button"
             startIcon={
               <img
@@ -26,6 +28,7 @@ function Root() {
         </Link>
         <Link to="/create" className="sidebar-item">
           <Button
+            onClick={() => setHeaderTitle("Nutzer erstellen")}
             className="sidebar-button"
             startIcon={
               <img
@@ -40,6 +43,7 @@ function Root() {
         </Link>
         <Link to="/edit" className="sidebar-item">
           <Button
+            onClick={() => setHeaderTitle("Nutzer bearbeiten")}
             className="sidebar-button"
             startIcon={
               <img
@@ -55,7 +59,7 @@ function Root() {
       </nav>
       <div className="root-container">
         <header className="root-header">
-          <h1>Nutzerverwaltungstools </h1>
+          <h1>{headerTitle}</h1>
         </header>
         <main className="main-content">
           <Outlet />

@@ -9,10 +9,18 @@ interface UserCardProps {
 function UserCard({ imageUrl, userName, userDescription }: UserCardProps) {
   return (
     <div className="custom-card">
-      <img src={imageUrl} alt="User portrait" />
+      <div className="image-container">
+        <img src={imageUrl} alt="User portrait" />
+      </div>
       <div className="user-info">
-        <p className="user-name">{userName}</p>
-        <p>{userDescription}</p>
+        <div className="name-container">
+          <p className="user-name">{userName}</p>
+        </div>
+        <div className="description-container">
+          <p className="user-description">{userDescription}</p>
+          <p className="user-description">{userDescription}</p>
+          <p className="user-description">{userDescription}</p>
+        </div>
       </div>
     </div>
   );

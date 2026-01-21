@@ -26,8 +26,7 @@ function Overview() {
         Gray + Orange
       </div>
       <Card style={{ marginTop: "1rem", padding: "1rem" }}>
-        This is a MUI Card component to demonstrate usage of external UI
-        libraries.
+        first MUI Card component
       </Card>
       <Card
         style={{
@@ -37,7 +36,7 @@ function Overview() {
           color: "#dbc8b5",
         }}
       >
-        This is a MUI Card component with custom styles.
+        last MUI Card component with custom styles.
       </Card>
       <UserCard
         imageUrl=" https://randomuser.me/api/portraits/men/1.jpg"
