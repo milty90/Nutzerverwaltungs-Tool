@@ -28,6 +28,7 @@ function Edit() {
       />
       <DropDownList
         label={"Geschlecht"}
+        onChange={() => {}}
         options={[
           { value: "male", label: "Männlich" },
           { value: "female", label: "Weiblich" },
