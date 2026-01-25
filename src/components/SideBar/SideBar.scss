@@ -1,10 +1,11 @@
+@use "../../styles/variables";
 .root-nav {
   display: flex;
   flex-direction: column;
-  background-color: #18181b;
-  padding: 16px;
+  background-color: variables.$secondary-dark-color;
+  padding: variables.$base-unit;
   width: 200px;
-  gap: 0.5rem;
+  gap: variables.$base-unit-half;
 }
 
 .logo {
@@ -14,9 +15,9 @@
 
 .line {
   border: 0;
-  height: 1px;
+  height: variables.$border-size-one;
   width: 100%;
-  background-color: #d4d4d8;
+  background-color: variables.$secondary-background-color;
   margin-bottom: 1.5rem;
 }
 
@@ -28,23 +29,23 @@
 }
 
 button {
-  color: #27272a;
+  color: variables.$color-dark;
   width: 200px;
   text-transform: none !important;
   font-weight: bolder !important;
-  color: #f4f4f5 !important;
+  color: variables.$color-white !important;
   justify-content: left !important;
   padding: 0.75rem;
 }
 
 button:hover {
-  background-color: rgb(97, 216, 250);
-  color: #ffffff;
+  background-color: variables.$primary-color;
+  color: variables.$color-white;
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto rgb(97, 216, 250);
+  outline: 4px auto variables.$primary-color;
 }
 
 .css-1kuwa16-MuiCardMedia-root {

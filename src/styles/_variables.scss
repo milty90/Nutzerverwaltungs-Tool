@@ -1,0 +1,28 @@
+$primary-background-color: #f4f4f5;
+$secondary-background-color: #d4d4d8;
+$color-dark: #27272a;
+$secondary-dark-color: #18181b;
+$color-white: #ffffff;
+$primary-color: #61d8fa;
+$input-border-color: #ccc;
+$input-text-color: #333;
+$card-text-color: #554434;
+$error-color: #aa4444;
+
+$base-unit: 1rem;
+$base-unit-half: 0.5rem;
+
+$font-size: 0.9rem;
+$input-field-width: 300px;
+$input-field-padding: 8px 8px 8px 12px;
+$input-field-margin-bottom: 1.1rem;
+$input-field-margin: 0px 4px 2px 12px;
+$border-size-one: 1px;
+$border-size: 2px;
+$border-radius: 8px;
+$user-card-box-shadow:
+  0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+  0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+$arrow-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");

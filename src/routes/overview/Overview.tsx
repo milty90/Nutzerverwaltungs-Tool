@@ -1,4 +1,3 @@
-import { Card } from "@mui/material";
 import UserCard from "../../components/Card/UserCard";
 
 function Overview() {

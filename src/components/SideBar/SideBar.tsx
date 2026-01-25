@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import "./SideBar.scss";
 
-function SideBar({
-  setHeaderTitle,
-}: {
+type SideBarProps = {
   setHeaderTitle: (title: string) => void;
-}) {
+};
+
+function SideBar({ setHeaderTitle }: SideBarProps) {
   return (
     <nav className="root-nav">
-      <img className="logo" src="./public/dark-logo.png" alt="" />
+      <img className="logo" src="/dark-logo.png" alt="" />
       <hr className="line" />
 
       <Link to="/overview">
@@ -18,7 +18,7 @@ function SideBar({
           startIcon={
             <img
               className="sidebar-icon"
-              src="./public/rectangles.svg"
+              src="/rectangles.svg"
               alt="Overview"
             />
           }
@@ -31,11 +31,7 @@ function SideBar({
         <Button
           onClick={() => setHeaderTitle("Nutzer erstellen")}
           startIcon={
-            <img
-              className="sidebar-icon"
-              src="./public/user-plus.svg"
-              alt="Create"
-            />
+            <img className="sidebar-icon" src="/user-plus.svg" alt="Create" />
           }
         >
           Erstellen
@@ -46,11 +42,7 @@ function SideBar({
         <Button
           onClick={() => setHeaderTitle("Nutzer bearbeiten")}
           startIcon={
-            <img
-              className="sidebar-icon"
-              src="./public/user-plus.svg"
-              alt="Overview"
-            />
+            <img className="sidebar-icon" src="/user-plus.svg" alt="Overview" />
           }
         >
           Bearbeiten

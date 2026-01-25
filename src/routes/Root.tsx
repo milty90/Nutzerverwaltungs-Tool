@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import "../routes/root.css";
+import "../routes/Root.scss";
 import { useState } from "react";
 import SideBar from "../components/SideBar/SideBar";
 function Root() {

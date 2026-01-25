@@ -1,0 +1,79 @@
+@use "../../styles/variables";
+
+.custom-card {
+  margin-top: variables.$base-unit;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid variables.$input-border-color;
+  background-color: variables.$primary-background-color;
+  border-radius: variables.$border-radius;
+  padding: variables.$base-unit;
+  width: 40rem;
+  text-align: left;
+  box-shadow: variables.$user-card-box-shadow;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.custom-card img {
+  border-radius: 50%;
+  border: lighten(variables.$card-text-color, 70%) variables.$border-size solid;
+  width: 6.25rem;
+  height: 6.25rem;
+  object-fit: cover;
+  margin-right: variables.$base-unit;
+}
+
+.user-name {
+  font-size: variables.$base-unit;
+  font-weight: bolder;
+}
+
+.name-container {
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 auto;
+}
+
+.description-container {
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: space-between;
+  margin-top: variables.$base-unit-half;
+}
+
+.user-description {
+  display: flex;
+  align-items: center;
+  gap: variables.$base-unit-half;
+  font-size: variables.$font-size;
+  color: variables.$card-text-color;
+  margin: 0;
+  & .user-description__icon {
+    font-size: variables.$base-unit;
+    color: lighten(variables.$card-text-color, 10%);
+  }
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: variables.$card-text-color;
+  top: 0;
+  flex: 1;
+}
+
+.close-icon {
+  cursor: pointer;
+  color: variables.$error-color;
+}

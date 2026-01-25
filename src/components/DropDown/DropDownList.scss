@@ -1,36 +1,43 @@
+@use "../../styles/variables";
+
 .dropdown-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.1rem;
-  width: 300px;
+  margin-bottom: variables.$input-field-margin-bottom;
+  width: variables.$input-field-width;
 }
+
 .dropdown-label {
   font-weight: bold;
   font-size: small;
-  margin: 0px 4px 2px 12px;
+  margin: variables.$input-field-margin;
 }
 
 .dropdown-select {
   -webkit-appearance: none;
-  font-size: 14px;
-  padding: 8px 8px 8px 12px;
-  height: 50px;
-  color: #333;
-  border: 2px solid #ccc;
-  background-color: #fff;
-  border-radius: 8px;
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  appearance: none;
+  font-size: variables.$font-size;
+  padding: variables.$input-field-padding;
+  height: 3.25rem;
+  color: variables.$input-text-color;
+  border: variables.$border-size solid variables.$input-border-color;
+  background-color: variables.$color-white;
+  border-radius: variables.$border-radius;
+  background-image: variables.$arrow-icon-url;
   background-repeat: no-repeat;
-
-  background-position: calc(100% - 8px) center;
+  background-position: calc(100% - variables.$border-radius) center;
   background-size: 20px;
 }
 
 .dropdown-option {
-  padding: 8px 8px 8px 12px;
+  padding: variables.$input-field-padding;
 }
+
 .dropdown-select:focus {
-  border: 2px solid #007bff;
+  border: variables.$border-size solid variables.$primary-color;
   outline: none;
+}
+
+.dropdown-select--error {
+  border: variables.$border-size solid variables.$error-color;
 }

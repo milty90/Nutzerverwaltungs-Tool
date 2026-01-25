@@ -1,23 +1,28 @@
+@use "../../styles/variables";
 .input-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.1rem;
-  width: 300px;
+  margin-bottom: variables.$input-field-margin-bottom;
+  width: variables.$input-field-width;
 }
 .input-label {
   font-weight: bold;
   font-size: small;
-  margin: 0px 4px 2px 12px;
+  margin: variables.$input-field-margin;
 }
 .input-field {
-  padding: 8px 8px 8px 12px;
-  height: 30px;
-  color: #333;
-  border: 2px solid #ccc;
-  background-color: #fff;
-  border-radius: 8px;
+  padding: variables.$input-field-padding;
+  height: 2rem;
+  color: variables.$input-text-color;
+  border: variables.$border-size solid variables.$input-border-color;
+  background-color: variables.$color-white;
+  border-radius: variables.$border-radius;
 }
 .input-field:focus {
-  border: 2px solid #61d8fa;
+  border: variables.$border-size solid variables.$primary-color;
   outline: none;
+}
+
+.input-field--error {
+  border: variables.$border-size solid variables.$error-color;
 }

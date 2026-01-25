@@ -1,4 +1,4 @@
-import "./UserCard.css";
+import "./UserCard.scss";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import CakeIcon from "@mui/icons-material/Cake";
 import WcIcon from "@mui/icons-material/Wc";
@@ -40,28 +40,28 @@ function UserCard({
         </div>
         <div className="description-container">
           <p className="user-description">
-            <CakeIcon className="user-description_icon" />
+            <CakeIcon className="user-description__icon" />
             {userBirthday}
           </p>
 
           <p className="user-description">
-            <LocationCityIcon className="user-description_icon" />
+            <LocationCityIcon className="user-description__icon" />
             {userCity}
           </p>
           <p className="user-description">
-            <WcIcon className="user-description_icon" />
+            <WcIcon className="user-description__icon" />
             {userGender}
           </p>
           <p className="user-description">
-            <LocalPhoneIcon className="user-description_icon" />
+            <LocalPhoneIcon className="user-description__icon" />
             {userPhone}
           </p>
           <p className="user-description">
-            <AlternateEmailIcon className="user-description_icon" />
+            <AlternateEmailIcon className="user-description__icon" />
             {userEmail}
           </p>
           <p className="user-description">
-            <LanguageIcon className="user-description_icon" />
+            <LanguageIcon className="user-description__icon" />
             {userWebsite}
           </p>
         </div>

@@ -4,13 +4,13 @@ import { Button } from "@mui/material";
 import useFromInput from "../../hooks/useFromInput";
 
 function Create() {
-  const userNameProps = useFromInput("");
-  const birthDateProps = useFromInput("");
-  const emailProps = useFromInput("");
-  const addressProps = useFromInput("");
-  const phoneProps = useFromInput("");
-  const websiteProps = useFromInput("");
-  const genderProps = useFromInput("");
+  const userNameProps = useFromInput("", true);
+  const birthDateProps = useFromInput("", true);
+  const emailProps = useFromInput("", true);
+  const addressProps = useFromInput("", true);
+  const phoneProps = useFromInput("", true);
+  const websiteProps = useFromInput("", true);
+  const genderProps = useFromInput("", true);
 
   return (
     <>
@@ -20,6 +20,7 @@ function Create() {
         placeholder={"Benutzername"}
         onChange={userNameProps.handleChange}
         value={userNameProps.inputValue}
+        error={userNameProps.error}
       />
       <InputField
         title={"Geburtsdatum"}
@@ -27,14 +28,18 @@ function Create() {
         placeholder={"Geburtsdatum"}
         onChange={birthDateProps.handleChange}
         value={birthDateProps.inputValue}
+        error={birthDateProps.error}
       />
       <DropDownList
         label={"Geschlecht"}
         onChange={genderProps.handleChange}
         options={[
+          { value: "", label: "Bitte wählen" },
           { value: "male", label: "Männlich" },
           { value: "female", label: "Weiblich" },
+          { value: "other", label: "Divers" },
         ]}
+        error={genderProps.error}
       />
       <InputField
         title={"E-Mail"}
@@ -42,6 +47,7 @@ function Create() {
         placeholder={"E-Mail"}
         onChange={emailProps.handleChange}
         value={emailProps.inputValue}
+        error={emailProps.error}
       />
       <InputField
         title={"Post Adresse"}
@@ -49,6 +55,7 @@ function Create() {
         placeholder={"Post Adresse"}
         onChange={addressProps.handleChange}
         value={addressProps.inputValue}
+        error={addressProps.error}
       />
       <InputField
         title={"Telefonnummer"}
@@ -56,6 +63,7 @@ function Create() {
         placeholder={"Telefonnummer"}
         onChange={phoneProps.handleChange}
         value={phoneProps.inputValue}
+        error={phoneProps.error}
       />
       <InputField
         title={"Website"}
@@ -63,9 +71,19 @@ function Create() {
         placeholder={"Website"}
         onChange={websiteProps.handleChange}
         value={websiteProps.inputValue}
+        error={websiteProps.error}
       />
       <Button
         className="sidebar-button"
+        disabled={
+          (userNameProps.error && userNameProps.inputValue === "") ||
+          (birthDateProps.error && birthDateProps.inputValue === "") ||
+          (emailProps.error && emailProps.inputValue === "") ||
+          (addressProps.error && addressProps.inputValue === "") ||
+          (phoneProps.error && phoneProps.inputValue === "") ||
+          (genderProps.error && genderProps.inputValue === "") ||
+          (websiteProps.error && websiteProps.inputValue === "")
+        }
         style={{
           backgroundColor: "#333",
           color: "#fff",
