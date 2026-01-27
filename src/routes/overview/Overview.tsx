@@ -1,44 +1,44 @@
 import UserCard from "../../components/Card/UserCard";
-import { storage } from "../../utils/localStorageService";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { userContext } from "../../context/userContext";
 import type { User } from "../../types/User";
-
-function getUsers(): User[] | null {
-  return storage.get("users");
-}
-
-function removeUser(userId: number) {
-  const { dispatchUsers } = useContext(userContext);
-  const users = getUsers();
-  if (!users) return;
-  const userToRemove = users.find((user) => user.id === userId);
-  if (!userToRemove) return;
-  dispatchUsers({ type: "REMOVE_USER", user: userToRemove });
-}
+import { useNavigate } from "react-router-dom";
+import { headerContext } from "../../context/headerContext";
 
 function Overview() {
-  const users: User[] = getUsers() || [];
+  const navigate = useNavigate();
+  const { dispatchUsers, users } = useContext(userContext);
+  const { setHeaderTitle } = useContext(headerContext);
+
+  useEffect(() => {
+    setHeaderTitle("Benutzerübersicht");
+  }, []);
+
+  function handleRemove(userId: number) {
+    dispatchUsers({
+      type: "REMOVE_USER",
+      user: { id: userId } as User,
+    });
+  }
+
+  function handleEdit(userId: number) {
+    navigate(`/edit/${userId}`);
+  }
+
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: "repeat(1, 1fr)",
         gap: "1rem",
       }}
     >
       {users.map((user) => (
         <UserCard
           key={user.id}
-          imageUrl={user.imageUrl}
-          userName={user.name}
-          userBirthday={user.birthDate}
-          userCity={user.address}
-          userGender={user.gender}
-          userPhone={user.phone}
-          userEmail={user.email}
-          userWebsite={user.website}
-          removeUser={() => removeUser(user.id)}
+          user={user}
+          removeUser={handleRemove}
+          editUser={handleEdit}
         />
       ))}
     </div>

@@ -1,5 +1,5 @@
 export const storage = {
-  set: <T>(key: string, value: T[]): void => {
+  set: (key: string, value: any): void => {
     try {
       const serializedValue = JSON.stringify(value);
       localStorage.setItem(key, serializedValue);
@@ -8,31 +8,13 @@ export const storage = {
     }
   },
 
-  get: <T>(key: string): T[] => {
+  get: (key: string) => {
     try {
       const item = localStorage.getItem(key);
-      return item ? (JSON.parse(item) as T[]) : [];
+      return item ? JSON.parse(item) : [];
     } catch (error) {
       console.error("Fehler beim Laden:", error);
       return [];
     }
-  },
-
-  add: <T>(key: string, newItem: T): void => {
-    try {
-      const currentArray = storage.get<T>(key);
-      currentArray.push(newItem);
-      storage.set(key, currentArray);
-    } catch (error) {
-      console.error("Fehler beim Hinzufügen des Elements:", error);
-    }
-  },
-
-  remove: (key: string): void => {
-    localStorage.removeItem(key);
-  },
-
-  clear: (): void => {
-    localStorage.clear();
   },
 };

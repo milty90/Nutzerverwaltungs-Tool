@@ -6,65 +6,56 @@ import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import LanguageIcon from "@mui/icons-material/Language";
+import type { User } from "../../types/User";
 
-interface UserCardProps {
-  imageUrl: string;
-  userName: string;
-  userBirthday: string;
-  userCity: string;
-  userGender: string;
-  userPhone: string;
-  userEmail: string;
-  userWebsite: string;
-  removeUser?: () => void;
-}
+type UserCardProps = {
+  user: User;
+  removeUser: (userId: number) => void;
+  editUser?: (userId: number) => void;
+};
 
-function UserCard({
-  imageUrl,
-  userName,
-  userBirthday,
-  userCity,
-  userGender,
-  userPhone,
-  userEmail,
-  userWebsite,
-  removeUser,
-}: UserCardProps) {
+function UserCard({ user, removeUser, editUser }: UserCardProps) {
   return (
     <div className="custom-card">
       <div className="image-container">
-        <img src={imageUrl} alt="User portrait" />
+        <img src={user.imageUrl} alt="User portrait" />
       </div>
       <div className="user-info">
         <div className="name-container">
-          <p className="user-name">{userName}</p>
-          <HighlightOffIcon onClick={removeUser} className="close-icon" />
+          <p className="user-name">{user.name}</p>
+          <HighlightOffIcon
+            onClick={() => removeUser(user.id)}
+            className="close-icon"
+          />
         </div>
-        <div className="description-container">
+        <div
+          className="description-container"
+          onClick={() => editUser && editUser(user.id)}
+        >
           <p className="user-description">
             <CakeIcon className="user-description__icon" />
-            {userBirthday}
+            {user.birthDate}
           </p>
 
           <p className="user-description">
             <LocationCityIcon className="user-description__icon" />
-            {userCity}
+            {user.address}
           </p>
           <p className="user-description">
             <WcIcon className="user-description__icon" />
-            {userGender}
+            {user.gender}
           </p>
           <p className="user-description">
             <LocalPhoneIcon className="user-description__icon" />
-            {userPhone}
+            {user.phone}
           </p>
           <p className="user-description">
             <AlternateEmailIcon className="user-description__icon" />
-            {userEmail}
+            {user.email}
           </p>
           <p className="user-description">
             <LanguageIcon className="user-description__icon" />
-            {userWebsite}
+            {user.website}
           </p>
         </div>
       </div>

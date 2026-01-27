@@ -1,4 +1,5 @@
 @use "../../styles/variables";
+@use "sass:color";
 
 .custom-card {
   margin-top: variables.$unit;
@@ -22,7 +23,8 @@
 
 .custom-card img {
   border-radius: 50%;
-  border: lighten(variables.$card-text-color, 50%) variables.$border-size solid;
+  border: variables.$border-size solid
+    color.scale($color: variables.$card-text-color, $lightness: 50%);
   width: 6.25rem;
   height: 6.25rem;
   object-fit: cover;
@@ -60,7 +62,7 @@
   margin: 0;
   & .user-description__icon {
     font-size: variables.$unit;
-    color: lighten(variables.$card-text-color, 10%);
+    color: color.scale($color: variables.$card-text-color, $lightness: 10%);
   }
 }
 
@@ -76,4 +78,5 @@
 .close-icon {
   cursor: pointer;
   color: variables.$error-color;
+  z-index: 1;
 }

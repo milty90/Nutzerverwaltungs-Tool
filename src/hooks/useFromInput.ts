@@ -5,7 +5,6 @@ export function useFromInput(value: string, required = false) {
   const [error, setError] = useState(false);
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-    console.log(e.target.value);
     setInputValue(e.target.value);
     setError(required && e.target.value.trim() === "");
     validate(e.target.value);
