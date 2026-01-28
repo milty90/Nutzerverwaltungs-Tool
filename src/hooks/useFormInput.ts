@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 
-export function useFromInput(value: string, required = false) {
+export function useFormInput(value: string, required = false) {
   const [inputValue, setInputValue] = useState(value);
   const [error, setError] = useState(false);
 
@@ -22,4 +22,4 @@ export function useFromInput(value: string, required = false) {
   return { inputValue, handleChange, error, validate };
 }
 
-export default useFromInput;
+export default useFormInput;

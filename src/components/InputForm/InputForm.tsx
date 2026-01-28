@@ -1,6 +1,6 @@
 import DropDownList from "../../components/DropDown/DropDownList";
 import InputField from "../../components/InputField/InputField";
-import useFromInput from "../../hooks/useFromInput";
+import useFromInput from "../../hooks/useFormInput";
 import { Button } from "@mui/material";
 import type { Gender, User } from "../../types/User";
 
@@ -40,12 +40,11 @@ function InputForm({ user, onSubmit }: UserFormProps) {
 
   function handleSubmit() {
     if (!validateAll()) {
-      alert("Bitte füllen Sie alle erforderlichen Felder aus.");
       return;
     }
     if (onSubmit) {
       onSubmit({
-        id: Date.now(),
+        id: user?.id ?? Date.now(),
         name: userNameProps.inputValue,
         birthDate: birthDateProps.inputValue,
         email: emailProps.inputValue,
@@ -131,15 +130,6 @@ function InputForm({ user, onSubmit }: UserFormProps) {
       <Button
         onClick={handleSubmit}
         className="sidebar-button"
-        disabled={
-          (userNameProps.error && userNameProps.inputValue === "") ||
-          (birthDateProps.error && birthDateProps.inputValue === "") ||
-          (emailProps.error && emailProps.inputValue === "") ||
-          (addressProps.error && addressProps.inputValue === "") ||
-          (phoneProps.error && phoneProps.inputValue === "") ||
-          (genderProps.error && genderProps.inputValue === "") ||
-          (websiteProps.error && websiteProps.inputValue === "")
-        }
         style={{
           backgroundColor: "#333",
           color: "#fff",

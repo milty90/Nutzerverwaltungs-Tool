@@ -1,17 +1,70 @@
 @use "../../styles/variables";
+@use "../../styles/mixins";
 
-.root-nav {
-  display: flex;
-  flex-direction: column;
-  background-color: variables.$secondary-dark-color;
-  padding: variables.$unit;
-  width: 200px;
-  gap: variables.$unit-half;
+@include mixins.mobile {
+  .root-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: variables.$secondary-dark-color;
+    padding: variables.$unit;
+    width: 60px;
+    height: 200vh;
+    gap: variables.$unit-half;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+    width: 100%;
+    margin: 8px auto;
+  }
+
+  .sidebar-icon {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+    margin: variables.$unit-half;
+  }
+
+  button {
+    display: block !important;
+    width: min-content !important;
+    height: fit-content !important;
+    padding: 0 auto !important;
+  }
+
+  .css-1sh91j5-MuiButton-startIcon {
+    margin: 0 !important;
+  }
 }
 
-.logo {
-  height: auto;
-  margin: 3px 8px 4px 8px;
+@include mixins.desktop {
+  .root-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: variables.$secondary-dark-color;
+    padding: variables.$unit;
+    width: 200px;
+    gap: variables.$unit-half;
+  }
+
+  .logo {
+    height: auto;
+    margin: 3px 8px 3px 8px;
+  }
+  .mobile {
+    display: none;
+  }
+  .sidebar-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    margin: 0 0.5rem 0 1rem;
+  }
 }
 
 .line {
@@ -20,13 +73,6 @@
   width: 100%;
   background-color: variables.$secondary-background-color;
   margin-bottom: 1.5rem;
-}
-
-.sidebar-icon {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0) invert(1);
-  margin: 0 0.5rem 0 1rem;
 }
 
 button {

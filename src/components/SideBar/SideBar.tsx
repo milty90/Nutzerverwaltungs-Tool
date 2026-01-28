@@ -5,7 +5,8 @@ import "./SideBar.scss";
 function SideBar() {
   return (
     <nav className="root-nav">
-      <img className="logo" src="/dark-logo.png" alt="" />
+      <img className="logo" src="/dark-logo-text.png" alt="" />
+      <img className="mobile" src="/logo-crop.png" alt="" />
       <hr className="line" />
 
       <Link to="/overview">
