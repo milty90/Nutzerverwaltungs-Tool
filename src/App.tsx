@@ -14,26 +14,21 @@ import { userContext } from "./context/userContext";
 import { storage } from "./utils/localStorageService";
 import { ToastContainer } from "react-toastify";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <Root />,
-      children: [
-        {
-          index: true,
-          element: <Navigate to="overview" replace />,
-        },
-        { path: "overview", element: <Overview /> },
-        { path: "create", element: <Create /> },
-        { path: "edit/:id", element: <Edit /> },
-      ],
-    },
-  ],
+const router = createBrowserRouter([
   {
-    basename: "/Nutzerverwaltungs-Tool", // Add this line
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="overview" replace />,
+      },
+      { path: "overview", element: <Overview /> },
+      { path: "create", element: <Create /> },
+      { path: "edit/:id", element: <Edit /> },
+    ],
   },
-);
+]);
 
 function App() {
   const [users, usersDispatch] = useReducer(
