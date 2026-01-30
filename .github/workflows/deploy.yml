@@ -33,6 +33,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          VITE_BASE_PATH: /Nutzenverwaltungs-Tool/
 
       - name: List dist contents (debug)
         run: |
