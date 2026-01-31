@@ -1,8 +1,4 @@
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Root from "./routes/Root";
 import Edit from "./routes/edit/Edit";
@@ -16,12 +12,9 @@ import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
+    path: "/Nutzerverwaltung",
     element: <Root />,
     children: [
-      {
-        index: true,
-        element: <Navigate to="overview" replace />,
-      },
       { path: "overview", element: <Overview /> },
       { path: "create", element: <Create /> },
       { path: "edit/:id", element: <Edit /> },
