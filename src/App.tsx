@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
-    path: "/Nutzenverwaltung",
+    path: "/Nutzerverwaltungs-Tool",
     element: <Root />,
     children: [
       { path: "overview", element: <Overview /> },
