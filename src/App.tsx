@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 
 const router = createHashRouter([
   {
-    path: "/Nutzerverwaltung",
+    path: "/",
     element: <Root />,
     children: [
       { index: true, element: <Overview /> },
